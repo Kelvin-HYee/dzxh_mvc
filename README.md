@@ -30,9 +30,10 @@
 ![image](https://github.com/jishuzcn/dzxh_mvc/blob/master/jietu/06.png?raw=true)
 * 前台首页
 ![image](https://github.com/jishuzcn/dzxh_mvc/blob/master/jietu/07.jpg?raw=true)
-* 招新报名页
+* 招新报名页(ip要上传服务器才能显示)
 ![image](https://github.com/jishuzcn/dzxh_mvc/blob/master/jietu/08.jpg?raw=true)
 * 手机访问时的前台页面
+
 ![image](https://github.com/jishuzcn/dzxh_mvc/blob/master/jietu/mobile.png?raw=true)
 
 ## 对此源码的评价
