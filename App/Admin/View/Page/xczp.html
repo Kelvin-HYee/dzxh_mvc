@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>upload</title>
+<link rel="stylesheet" type="text/css" href="__css__/main.css"/>
+<link rel="stylesheet" type="text/css" href="__css__/common.css"/>
+</head>
+
+<body>
+<div class="crumb-wrap">
+    <div class="crumb-list"><i class="icon-font"></i><a href="{:U('Index/main')}">首页
+
+    </a><span class="crumb-step">&gt;</span><span class="crumb-name">宣传照片</span></div>
+</div>
+<form action="__URL__/xczp_c" method="post" enctype="multipart/form-data" style="padding-top: 80px">
+    <table width="70%" border="1" cellpadding="5" cellspacing="0" bgcolor="#cccccc" align="center">
+        <tr>
+            <th><i class="require-red">*</i>请为图片添加介绍：</th>
+            <td>1</td>
+            <td><input type="file" name="path_photo[]"/></td>
+        </tr>
+        <tr>
+            <th><i class="require-red">*</i>请为图片添加介绍：</th>
+            <td>2</td>
+            <td><input type="file" name="path_photo[]"/></td>
+        </tr>
+        <tr>
+            <th><i class="require-red">*</i>请为图片添加介绍：</th>
+            <td>3</td>
+            <td><input type="file" name="path_photo[]"/></td>
+        </tr>
+        <tr>
+            <th><i class="require-red">*</i>请为图片添加介绍：</th>
+            <td>4</td>
+            <td><input type="file" name="path_photo[]"/></td>
+        </tr>
+        <tr>
+            <td colspan="2"><input class="btn btn-primary btn2"  type="submit" value="上传文件并提交信息"/></td>
+            <td></td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>后台管理</title>
+    <link rel="stylesheet" type="text/css" href="__css__/common.css"/>
+    <link rel="stylesheet" type="text/css" href="__css__/main.css"/>
+    <script type="text/javascript" src="__js__/libs/modernizr.min.js"></script>
+</head>
+<body>
+<div class="crumb-wrap">
+    <div class="crumb-list"><i class="icon-font"></i><a href="{:U('Index/main')}">首页
+
+    </a><span class="crumb-step">&gt;</span><span class="crumb-name">常规设置</span></div>
+</div>
+    
+    <!--/main-->
+    
+             <div class="xh_start" >
+    <div class="result-wrap">
+      <h1 align="left"><font size="+1" face="Verdana, Geneva, sans-serif">设置选项</font></h1>
+      <table class="tabSet" bgcolor="#CCCCCC" >
+            <form action="__URL__/Sys_set" method="post" style="float: left">
+                <volist name="list" id="li">
+            <tr>
+              <th width="116" height="89"><label>站点标题</label></th>
+              <td width="300" align="center"><input name="title" type="text" placeholder="请输入站点标题" /></td>
+              <th>NOT NULL</th>
+            </tr>
+            <th>
+            <td>{$li.title}</td>
+            </th>
+                    <tr>
+                        <th width="116" height="89"><label>网址</label></th>
+                        <td width="300" align="center"><input name="link" type="text" placeholder="请输入站点网址" /></td>
+                        <th>NOT NULL</th>
+                    </tr>
+                    <th>
+                    <td>{$li.link}</td>
+                    </th>
+
+            <tr>
+              <th width="116" height="89"><label>ICP备案号</label></th>
+              <td width="300" align="center"><input name="icp" type="text" placeholder="请输入备案号"  /></td>
+            </tr><th>
+              <td>{$li.icp}</td></th>
+            <tr>
+		<th><input class="btn btn-primary btn2"  value="保存更改" type="submit"></th>
+	</tr>
+                </volist>
+      </form>
+      </table>
+    </div>
+</div>
+</body>
+</html>

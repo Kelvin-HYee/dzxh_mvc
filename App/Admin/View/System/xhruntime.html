@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>清理缓存</title>
+    <link rel="stylesheet" type="text/css" href="__css__/common.css"/>
+    <link rel="stylesheet" type="text/css" href="__css__/main.css"/>
+    <script type="text/javascript" src="__js__/libs/modernizr.min.js"></script>
+</head>
+<body>
+<style>
+    .btnT{
+        padding: 2px 4px 0px 4px;
+        font-size: 17px;
+        height: 123px;
+        background-color: #ece9d8;
+        border-width: 5px;
+        width:150px;
+    }
+</style>
+<div class="crumb-wrap">
+    <div class="crumb-list"><i class="icon-font"></i><a href="{:U('Index/main')}">首页
+
+    </a><span class="crumb-step">&gt;</span><span class="crumb-name">缓存清理</span></div>
+</div>
+<div align="center"><font color="#cd5c5c" size="+2">{$ti}</font></div>
+<div align="center" style="padding-top: 10%"><button class="btnT" type="button" onclick="window.location.href='{:U('Admin/System/clearRuntime')}'"><font color="red">点击一键清理缓存</font></button>
+</div>
+</body>
+</html>

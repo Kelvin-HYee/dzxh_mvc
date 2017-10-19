@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/../dzxh/admin/administer-chaxun.php" charset="GB2312" />
+    <file url="file://$PROJECT_DIR$/../dzxh/admin/administer-fenlei.php" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/../dzxh/admin/delMore.php" charset="GB2312" />
+    <file url="file://$PROJECT_DIR$/../dzxh/admin/index.php" charset="GB2312" />
+    <file url="file://$PROJECT_DIR$/../dzxh/admin/watch.php" charset="GB2312" />
+    <file url="file://$PROJECT_DIR$/../dzxh/code/admin.inc.php" charset="GB2312" />
+    <file url="file://$PROJECT_DIR$/../dzxh/code/article.inc.php" charset="GB2312" />
+    <file url="file://$PROJECT_DIR$/../dzxh/dzxh.php" charset="GB2312" />
+    <file url="file://$PROJECT_DIR$/../dzxh/lib/mysql.func.php" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/DbSet/dzxh.sql" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/NOTICE.TXT" charset="GBK" />
+  </component>
+</project>

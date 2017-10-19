@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>后台管理</title>
+    <link rel="stylesheet" type="text/css" href="__css__/common.css"/>
+    <link rel="stylesheet" type="text/css" href="__css__/main.css"/>
+    <script type="text/javascript" src="__js__/libs/modernizr.min.js"></script>
+</head>
+<body>
+<div class="crumb-wrap">
+    <div class="crumb-list"><i class="icon-font"></i><a href="{:U('Index/main')}">首页
+
+    </a><span class="crumb-step">&gt;</span><span class="crumb-name">查看文章</span></div>
+</div>
+        <div class="search-wrap">
+            <h3>文章</h3>
+<form action="" method="post">
+</form>
+        </div>
+<volist name="list" id="li">
+       <div id="title" align="center" ><font size="+2" >{$li.title}</font></div>
+       <div id="ftitle" align="center"><font size="-1" face="Verdana, Geneva, sans-serif">作者：{$li.author}&nbsp; 发布时间：{$li.dateline} &nbsp;点击次数：{$li.clicktimes}</font> </div>
+       <hr style="alignment-baseline:text-before-edge"/>
+       <div id="content">{$li.content|htmlspecialchars_decode}</div>
+</volist>
+</div>
+</body>
+</html>

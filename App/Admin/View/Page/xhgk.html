@@ -1,0 +1,91 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>后台管理</title>
+    <link rel="stylesheet" type="text/css" href="__css__/common.css"/>
+    <link rel="stylesheet" type="text/css" href="__css__/main.css"/>
+    <script type="text/javascript" src="__js__/libs/modernizr.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="__plugins__/kindeditor/kindeditor.js"></script>
+    <script type="text/javascript" charset="utf-8" src="__plugins__/kindeditor/lang/zh_CN.js"></script>
+    <script>
+        KindEditor.ready(function(K) {
+                window.editor = K.create('#editor_id');
+        });
+        $(document).ready(function(){
+        	$("#selectFileBtn").click(function(){
+        		$fileField = $('<input type="file" name="thumbs[]"/>');
+        		$fileField.hide();
+        		$("#attachList").append($fileField);
+        		$fileField.trigger("click");
+        		$fileField.change(function(){
+        		$path = $(this).val();
+        		$filename = $path.substring($path.lastIndexOf("\\")+1);
+        		$attachItem = $('<div class="attachItem"><div class="left">a.gif</div><div class="right"><a href="#" title="删除附件">删除</a></div></div>');
+        		$attachItem.find(".left").html($filename);
+        		$("#attachList").append($attachItem);		
+        		});
+        	});
+        	$("#attachList>.attachItem").find('a').live('click',function(obj,i){
+        		$(this).parents('.attachItem').prev('input').remove();
+        		$(this).parents('.attachItem').remove();
+        	});
+        });
+</script>
+</head>
+<body>
+<div class="crumb-wrap">
+    <div class="crumb-list"><i class="icon-font"></i><a href="{:U('Index/main')}">首页
+
+    </a><span class="crumb-step">&gt;</span><span class="crumb-name">协会概况</span></div>
+</div>
+        <div class="result-wrap">
+            <div class="result-content">
+                <form action="__URL__/xhgk_c" method="post" >
+                    <table class="insert-tab" width="100%">
+                        <volist name="list" id="li">
+                        <tbody>
+                        <tr>
+                             <th><i class="require-red" >*</i>编辑作者：</th>
+                                <td >
+                                   <a name="author" value="<?php echo $_SESSION['adminName']    ?>"><?php echo $_SESSION['adminName']    ?></a>
+                                </td>
+                            </tr>
+                             <tr>
+                             <th><i class="require-red" >*</i>编辑时间：</th>
+                                <td >
+                                   <a name="dateline" value="<?php $time = time(); echo date("y-m-d h:m:s",$time)?>"><?php $time = time(); echo date("y-m-d h:m:s",$time)?></a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th><i class="require-red">*</i>标题：</th>
+                                <td>
+                                    <input class="common-text required" id="title" name="title" size="50" value="{$li.title}" type="text">
+                                </td>
+                            </tr>
+                            <tr style="width:100%;height:500px;" >
+                                <th><i class="require-red">*</i>文章内容：</th>
+                                <td><font color="red" size="2">在此编写协会的概况，可使用HTML格式</font>
+                                    <font color="green" size="1">(本在线编辑器采用kindeditor，有使用问题可以查阅他们官网！)</font>
+                                    <textarea name="content" class="common-textarea" id="editor_id"  style="width:100%;height:480px;" >{$li.content}</textarea>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th></th>
+                                <td>
+                                    <input class="btn btn-primary btn6 mr10" value="发布" type="submit">
+                                    <input class="btn btn6" onclick="history.go(-1)" value="返回" type="button">
+                                </td>
+                            </tr>
+                        </tbody>
+                        </volist>
+                    </table>
+                </form>
+            </div>
+        </div>
+
+    </div>
+    <!--/main-->
+</div>
+</body>
+</html>

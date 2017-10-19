@@ -1,0 +1,63 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>后台管理</title>
+    <link rel="stylesheet" type="text/css" href="__css__/common.css"/>
+    <link rel="stylesheet" type="text/css" href="__css__/main.css"/>
+    <script type="text/javascript" src="__js__/libs/modernizr.min.js"></script>
+</head>
+<body>
+<div class="crumb-wrap">
+    <div class="crumb-list"><i class="icon-font"></i><a href="{:U('Index/main')}">首页
+
+    </a><span class="crumb-step">&gt;</span><span class="crumb-name">数据备份与还原</span></div>
+</div>
+       
+    
+    <!--/main-->
+    
+             <div class="xh_start" >
+                 <div class="result-content">
+                 <table class="result-tab" border="0" cellSpacing="0" cellPadding="0" width="100%">
+                     <tbody>
+                     <tr class="tr_head">
+                         <th width="40px">序号</th>
+                         <th>文件名</th>
+                         <th width="150px">备份时间</th>
+                         <th width="130px">文件大小</th>
+                         <th width="100px">操作</th>
+
+                     </tr>
+                     <notempty  name="lists">
+
+                         <foreach name="lists" key="key" item="row">
+                             <if condition="$key gt 1">
+                                 <tr>
+                                     <td>{$key-1}</td>
+                                     <td ><a href="{:U('System/XhBackup',array('Action'=>'download','file'=>$row))}">{$row}</a></td>
+                                     <td>{$row|getfiletime=$datadir}</td>
+                                     <td>{$row|getfilesize=$datadir}</td>
+                                     <td>
+                                         <a href="{:U('System/XhBackup',array('Action'=>'download','file'=>$row))}">下载</a>
+                                         <a onclick="return confirm('确定将数据库还原到当前备份吗？')"href="{:U('System/XhBackup',array('Action'=>'RL','File'=>$row))}">还原</a>
+                                         <a onclick="return confirm('确定删除该备份文件吗？')"href="{:U('System/XhBackup',array('Action'=>'Del','File'=>$row))}">删除</a>
+                                     </td>
+                                 </tr>
+                             </if>
+                         </foreach>
+                         <else/>
+                         <tr>
+                             <td colspan="7">没有找到相关数据。</td>
+                         </tr>
+
+                     </notempty>
+                     </tbody>
+                 </table>
+                 <p>
+                     <a class="btn" type="button" onClick="location.href = '__URL__/XhBackup/Action/backup'">备份添加</a>
+                 </p>
+        </div>
+                 </div>
+</body>
+</html>

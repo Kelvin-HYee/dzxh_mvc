@@ -1,0 +1,104 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>后台管理</title>
+	<link rel="stylesheet" type="text/css" href="__css__/common.css"/>
+	<link rel="stylesheet" type="text/css" href="__css__/main.css"/>
+	<script type="text/javascript" src="__js__/libs/modernizr.min.js"></script>
+</head>
+<body>
+<style>
+	/*分页样式*/
+	.pagelist{ text-align:center; background:#f1f1f1; padding:7px 0;}
+	.pagelist a{ margin:0 5px; border:#6185a2 solid 1px; display:inline-block; padding:2px 6px 1px; line-height:16px; background:#fff; color:#6185a2;}
+	.pagelist span{ margin:0 5px; border:#6185a2 solid 1px; display:inline-block; padding:2px 6px 1px; line-height:16px; color:#6185a2; color:#fff; background:#6185a2;}
+</style>
+<div class="crumb-wrap">
+	<div class="crumb-list"><i class="icon-font"></i><a href="{:U('Index/main')}">首页
+
+	</a><span class="crumb-step">&gt;</span><span class="crumb-name">文章管理</span></div>
+</div>
+<div class="search-wrap">
+	<div class="search-content">
+		<form action="#" method="post">
+			<table class="search-tab" align="center">
+				<tr align="right">
+					<th width="70">搜索:</th>
+					<td ><input class="common-text" placeholder="关键字"
+
+								name="keywords" value="" id="search" type="text"  ></td>
+					<td><input class="btn btn-primary btn2" name="sub" value="查询"
+
+							   type="submit" onkeypress="search()"></td>
+				</tr>
+			</table>
+		</form>
+	</div>
+</div>
+
+<div class="result-wrap">
+	<form name="myform" id="myform" method="post" action="__URL__/delMore">
+		<div class="result-title">
+			<div class="result-list">
+				<a href="{:U('Article/ArticleFenLei')}"><i class="icon-font"></i>添加（修改）分类
+
+				</a>
+				<a id="batchDel" href="javascript:void(0)"><i class="icon-font"><input class="btn btn-primary btn2" type=submit value="批量删除"></i></a>
+				<a id="updateOrd" href="javascript:void(0)"><i class="icon-font"> </i>
+                    <select id="" class="select" onchange="window.location=this.value;">
+					<option>-更新排序-</option>
+					<option value="{:U('Admin/Article/ArticleGuanli/order/id asc')}" >id(时间)由低到高</option>
+					<option value="{:U('Admin/Article/ArticleGuanli/order/id desc')}">id(时间)由高到底</option>
+					<option value="{:U('Admin/Article/ArticleGuanli/order/clicktimes asc')}" >点击次数由低到高  </option>
+					<option value="{:U('Admin/Article/ArticleGuanli/order/clicktimes desc')}">点击次数由高到底  </option>
+				</select></a>
+				<font color="#7fffd4">删不掉？del110试试</font>
+			</div>
+		</div>
+        <div class="result-content">
+            <table class="result-tab" width="100%">
+                <tr>
+                    <th class="tc" width="2%"></th>
+                    <th>ID</th>
+                    <th>标题</th>
+                    <th>作者</th>
+                    <th>分类</th>
+                    <th>点击次数</th>
+                    <th>时间</th>
+                    <th>操作</th>
+                </tr>
+                <volist name="list" id="li">
+                    <tr>
+                        <td class="tc"><input type="checkbox" name="box[]" value="{$li.id}" style="background:none; border:none;" /></td>
+                        <td>{$li.id}</td> <!--标签ID-->
+                        <td width="40%">{$li.title}</td> <!--标题-->
+                        <td>{$li.author}</td>
+                        <td>{$li.name}</td>
+                        <td>{$li.clicktimes}</td>
+                        <td>{$li.dateline}</td>
+                        <td>
+                            <input class="btn btn-primary btn2"  value="查看" type="button" onClick="window.location.href='{:U('Admin/Article/watch/id/'.$li['id'])}'">
+                            <input class="btn btn-primary btn2"  value="修改" type="button" onClick="window.location.href='{:U('Admin/Article/editArticle/id/'.$li['id'])}'">
+                            <input class="btn btn-primary btn2"  value="删除" type="button" onClick="del({$li.id})">
+                        </td>
+                    </tr>
+                </volist>
+                <tr align="center"> <td colspan="7"><div class="pagelist">{$page}</div></td></tr>
+            </table>
+        </div>
+    </form>
+</div>
+</body>
+<script type="text/javascript">
+    function search(){
+        var val=document.getElementById("search").value;
+        window.location.href="{:U('Admin/Article/ArticleGuanli/keywords/')}+'?keywords="+val;
+    }
+	function del(id){
+		if(window.confirm("您确定要删除吗？！！！")){
+			window.location.href='{:U('Admin/Article/delArticle/')}?id='+id;
+		}
+	}
+</script>
+</html>

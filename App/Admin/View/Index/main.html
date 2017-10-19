@@ -1,0 +1,87 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>管理员中心</title>
+    <link rel="stylesheet" type="text/css" href="__css__/common.css"/>
+    <link rel="stylesheet" type="text/css" href="__css__/main.css"/>
+    <script type="text/javascript" src="__js__/libs/modernizr.min.js"></script>
+</head>
+<body>
+<center>
+        <div class="crumb-wrap">
+            <div class="index">欢迎<?php 
+				if(isset($_SESSION['adminName'])){
+					echo $_SESSION['adminName'];
+				}elseif(isset($_COOKIE['adminName'])){
+					echo $_COOKIE['adminName'];
+				} ?>来到后台首页  </div>
+        </div>
+        <hr>
+        <div class="xh_start">
+			<div align="center"><font color="#cd5c5c" size="+2">{$ti}</font></div>
+			<div align="center"><font color="#cd5c5c" size="+2">{$jo}</font></div>
+			<div align="center"><font color="#cd5c5c" size="+2">{$mo}</font></div>
+        <h3>开始操作</h3>
+	<table width="70%" border="1" cellpadding="5" cellspacing="0" bgcolor="#cccccc" align="center">
+		<tr>
+			<th>Step1</th>
+			<td><a href="{:U('User/AlterPsw')}">更改用户名和密码</a></td>
+		</tr>
+		<tr>
+			<th>Step2</th>
+			<td><a href="{:U('System/XhSet')}">编辑系统操作常规设置</a></td>
+		</tr>
+		<tr>
+			<th>Step3</th>
+			<td><a href="{:U('Page/gywm')}">编辑系统操作我们团队</a></td>
+		</tr>
+		<tr>
+			<th>Step4</th>
+			<td><a href=""> 发布文章与页面</a></td>
+		</tr>
+	</table>
+       <h3>软件信息</h3>
+	<table width="70%" border="1" cellpadding="5" cellspacing="0" bgcolor="#cccccc" align="center">
+		<tr>
+			<th>软件名称</th>
+			<td>电子应用技术协会专用管理系统</td>
+		</tr>
+		<tr>
+			<th>开发人员</th>
+			<td>汪思源</td>
+		</tr>
+		<tr>
+			<th>软件版本</th>
+			<td>2.0.1版本</td>
+		</tr>
+		<tr>
+			<th>联系我们</th>
+			<td>博客首页：<a href="http://jishuz.cn" target="_blank">技术宅</a>，邮箱：1375643047@qq.com</td>
+		</tr>
+	</table>
+        <h3>系统信息</h3>
+	<table width="70%" border="1" cellpadding="5" cellspacing="0" bgcolor="#cccccc" align="center">
+		<tr>
+			<th>操作系统</th>
+			<td><?php echo PHP_OS;?></td>
+		</tr>
+        <tr>
+			<th>运行方式</th>
+			<td><?php echo PHP_SAPI;?></td>
+		</tr>
+		<tr>
+			<th>PHP版本</th>
+			<td><?php echo PHP_VERSION;?></td>
+		</tr>
+		<tr>
+			<th>Apache版本</th>
+			<td></td>
+		</tr>
+	</table>
+ </div>
+    </div>
+    <!--/main-->
+    </center>
+</body>
+</html>

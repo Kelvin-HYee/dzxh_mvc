@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>邮件发送页面</title>
+    <link rel="stylesheet" type="text/css" href="__css__/common.css"/>
+    <link rel="stylesheet" type="text/css" href="__css__/main.css"/>
+    <script type="text/javascript" src="__js__/libs/modernizr.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="__plugins__/kindeditor/kindeditor.js"></script>
+    <script type="text/javascript" charset="utf-8" src="__plugins__/kindeditor/lang/zh_CN.js"></script>
+
+</head>
+<body>
+<div class="crumb-wrap">
+    <div class="crumb-list"><i class="icon-font"></i><a href="{:U('Index/main')}">首页
+
+    </a><span class="crumb-step">&gt;</span><span class="crumb-name">邮件发布</span></div>
+</div>
+<div class="result-wrap">
+    <div class="result-content">
+<form action="__URL__/add" method="post" enctype="multipart/form-data">
+    <table class="insert-tab" width="100%">
+        <tbody><tr>
+            <th width="120"><i class="require-red"></i>发送给：</th>
+            <td><strong>所有订阅者</strong>(共{$count}个订阅者)</td>
+        </tr>
+        <tr>
+            <th><i class="require-red">*</i>标题：</th>
+            <td>
+                <input class="common-text required" id="title" name="title" size="50" value="" type="text" placeholder="邮件标题">
+            </td>
+        </tr>
+        <tr style="width:100%;height:500px;" >
+            <th><i class="require-red">*</i>文章内容：</th>
+            <td><textarea name="content" class="common-textarea" id="content"  style="width:100%;height:480px;" >内容可以为HTML格式</textarea></td>
+        </tr>
+        <tr>
+            <th></th>
+            <td>
+                <input class="btn btn-primary btn6 mr10" value="发布" type="submit">
+                <input class="btn btn6" onclick="history.go(-1)" value="返回" type="button">
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</form>
+        </div></div>
+</body>
+</html>

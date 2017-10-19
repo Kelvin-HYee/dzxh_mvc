@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>后台管理</title>
+    <link rel="stylesheet" type="text/css" href="__css__/common.css"/>
+    <link rel="stylesheet" type="text/css" href="__css__/main.css"/>
+    <script type="text/javascript" src="__js__/libs/modernizr.min.js"></script>
+</head>
+<body><style>
+    /*分页样式*/
+    .pagelist{ text-align:center; background:#f1f1f1; padding:7px 0;}
+    .pagelist a{ margin:0 5px; border:#6185a2 solid 1px; display:inline-block; padding:2px 6px 1px; line-height:16px; background:#fff; color:#6185a2;}
+    .pagelist span{ margin:0 5px; border:#6185a2 solid 1px; display:inline-block; padding:2px 6px 1px; line-height:16px; color:#6185a2; color:#fff; background:#6185a2;}
+</style>
+<div class="crumb-wrap">
+    <div class="crumb-list"><i class="icon-font"></i><a href="{:U('Index/main')}">首页
+
+    </a><span class="crumb-step">&gt;</span><span class="crumb-name">电影反馈</span></div>
+</div>
+                <div class="result-wrap">
+                    <form name="myform" id="myform" method="post" action="__URL__/delMore">
+                        <div class="result-content">
+                            <table class="result-tab" width="100%">
+                                <tr>
+                                    <th>ID</th>
+                                    <th>电影名</th>
+                                    <th>主角名</th>
+                                    <th>理由</th>
+                                    <th>时间</th>
+                                    <th>操作</th>
+                                </tr>
+                                <volist name="list" id="li">
+                                    <tr>
+                                        <td>{$li.id}</td> <!--标签ID-->
+                                        <td width="40%">{$li.m_name}</td> <!--标题-->
+                                        <td>{$li.p_name}</td>
+                                        <td>{$li.reason}</td>
+                                        <td>{$li.time}</td>
+                                        <td>
+                                            <input class="btn btn-primary btn2"  value="删除" type="button" onclick="window.location.href='__URL__/xxfk_c/id/{$li.id}'">
+                                        </td>
+                                    </tr>
+                                </volist>
+                                <tr align="center"> <td colspan="7"><div class="pagelist">{$page}</div></td></tr>
+                            </table>
+                        </div>
+                    </form>
+                </div>
+
+</body>
+</html>

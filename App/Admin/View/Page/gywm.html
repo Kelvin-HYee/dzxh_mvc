@@ -1,0 +1,132 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>后台管理</title>
+    <link rel="stylesheet" type="text/css" href="__css__/common.css"/>
+    <link rel="stylesheet" type="text/css" href="__css__/main.css"/>
+    <script type="text/javascript" src="__js__/libs/modernizr.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="__plugins__/kindeditor/kindeditor.js"></script>
+    <script type="text/javascript" charset="utf-8" src="__plugins__/kindeditor/lang/zh_CN.js"></script>
+    <script>
+        KindEditor.ready(function(K) {
+                window.editor = K.create('#editor_id');
+        });
+        $(document).ready(function(){
+        	$("#selectFileBtn").click(function(){
+        		$fileField = $('<input type="file" name="thumbs[]"/>');
+        		$fileField.hide();
+        		$("#attachList").append($fileField);
+        		$fileField.trigger("click");
+        		$fileField.change(function(){
+        		$path = $(this).val();
+        		$filename = $path.substring($path.lastIndexOf("\\")+1);
+        		$attachItem = $('<div class="attachItem"><div class="left">a.gif</div><div class="right"><a href="#" title="删除附件">删除</a></div></div>');
+        		$attachItem.find(".left").html($filename);
+        		$("#attachList").append($attachItem);		
+        		});
+        	});
+        	$("#attachList>.attachItem").find('a').live('click',function(obj,i){
+        		$(this).parents('.attachItem').prev('input').remove();
+        		$(this).parents('.attachItem').remove();
+        	});
+        });
+</script>
+</head>
+<body>
+<div class="crumb-wrap">
+    <div class="crumb-list"><i class="icon-font"></i><a href="{:U('Index/main')}">首页
+
+    </a><span class="crumb-step">&gt;</span><span class="crumb-name">关于我们</span></div>
+</div>
+        <div class="result-wrap">
+            <div class="result-content">
+                <div class="col-md-2 team-grid">
+                    <form action="__URL__/gywm_c" method="post" enctype="multipart/form-data">
+                        <table width="70%" border="1" cellpadding="5" cellspacing="0" bgcolor="#cccccc" align="center">
+                            <tr>
+                                <th>姓名</th>
+                                <th>介绍</th>
+                                <th>图片</th>
+                            </tr>
+                            <tr>
+                                <td><input type="text" name="name1" placeholder="请输入名字"/></td>
+                                <td><input type="text" name="f_name1" placeholder="请输入十字左右的介绍"/></td>
+                                <td><input type="file" name="path_photo[]"/></td>
+                            </tr>
+                            <tr>
+                                <td><input type="text" name="name2" placeholder="请输入名字"/></td>
+                                <td><input type="text" name="f_name2" placeholder="请输入十字左右的介绍"/></td>
+                                <td><input type="file" name="path_photo[]"/></td>
+                            </tr>
+                            <tr>
+                                <td><input type="text" name="name3" placeholder="请输入名字"/></td>
+                                <td><input type="text" name="f_name3" placeholder="请输入十字左右的介绍"/></td>
+                                <td><input type="file" name="path_photo[]"/></td>
+                            </tr>
+                            <tr>
+                                <td><input type="text" name="name4" placeholder="请输入名字"/></td>
+                                <td><input type="text" name="f_name4" placeholder="请输入十字左右的介绍"/></td>
+                                <td><input type="file" name="path_photo[]"/></td>
+                            </tr>
+                            <tr>
+                                <td><input type="text" name="name5" placeholder="请输入名字"/></td>
+                                <td><input type="text" name="f_name5" placeholder="请输入十字左右的介绍"/></td>
+                                <td><input type="file" name="path_photo[]"/></td>
+                            </tr>
+                            <tr>
+                                <td><input type="text" name="name6" placeholder="请输入名字"/></td>
+                                <td><input type="text" name="f_name6" placeholder="请输入十字左右的介绍"/></td>
+                                <td><input type="file" name="path_photo[]"/></td>
+                            </tr>
+                            <tr>
+                                <td colspan="2"><input class="btn btn-primary btn2"  type="submit" value="上传文件并提交信息"/></td>
+                                <td></td>
+                            </tr>
+                        </table>
+                    </form><br/><br/>
+                    <table width="70%" border="1" cellpadding="5" cellspacing="0" bgcolor="#cccccc" align="center">
+                        <volist name="list" id="li">
+                            <tr>
+                            <th>图片</th>
+                            <th>姓名</th>
+                            <th>介绍</th>
+                        </tr>
+                        <tr>
+                            <td><img src="__ROOT__/{$li.path_photo1}" alt="" /></td>
+                             <td><h5>{$li.name1}</h5></td>
+                            <td><p>{$li.f_name1}</p></td>
+                        </tr>
+                        <tr>
+                            <td><img src="__ROOT__/{$li.path_photo2}" alt="" /></td>
+                            <td><h5>{$li.name2}</h5></td>
+                            <td><p>{$li.f_name2}</p></td>
+                        </tr>
+                        <tr>
+                            <td><img src="__ROOT__/{$li.path_photo3}" alt="" /></td>
+                            <td><h5>{$li.name3}</h5></td>
+                            <td><p>{$li.f_name3}</p></td>
+                        </tr>
+                        <tr>
+                            <td><img src="__ROOT__/{$li.path_photo4}" alt="" /></td>
+                            <td><h5>{$li.name4}</h5></td>
+                            <td><p>{$li.f_name4}</p></td>
+                        </tr>
+                        <tr>
+                            <td><img src="__ROOT__/{$li.path_photo5}" alt="" /></td>
+                            <td><h5>{$li.name5}</h5></td>
+                            <td><p>{$li.f_name5}</p></td>
+                        </tr>
+                        <tr>
+                            <td><img src="__ROOT__/{$li.path_photo6}" alt="" /></td>
+                            <td><h5>{$li.name6}</h5></td>
+                            <td><p>{$li.f_name6}</p></td>
+                        </tr>
+                        </volist>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+</body>
+</html>

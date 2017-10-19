@@ -1,0 +1,86 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>后台管理</title>
+    <link rel="stylesheet" type="text/css" href="__css__/common.css"/>
+    <link rel="stylesheet" type="text/css" href="__css__/main.css"/>
+    <script type="text/javascript" src="__js__/libs/modernizr.min.js"></script>
+</head>
+<body>
+<div class="crumb-wrap">
+    <div class="crumb-list"><i class="icon-font"></i><a href="{:U('Index/main')}">首页
+
+    </a><span class="crumb-step">&gt;</span><span class="crumb-name">管理用户</span></div>
+</div>
+        <div class="search-wrap">
+        </div>
+       
+    
+    <!--/main-->
+    <div class="result-wrap">
+            <form name="myform" id="myform" method="post">
+            <div class="result-title">
+                    <div class="result-list">
+                        <a href="{:U('User/AddUser')}"><i class="icon-font"></i>新增用户
+
+                        </a>
+                    </div>
+                </div>
+                <div class="result-content">
+                    <table class="result-tab" width="100%">
+                        <tr>
+                            <th>ID</th>
+                            <th>用户名</th>
+                            <th>性别</th>
+                            <th>管理权限</th>
+                            <th>操作</th>
+                        </tr>
+                         <volist name="list" id="li">
+                      <tr>
+                        <td>{$li.id}</td>  <!--标签ID-->
+                            <td>{$li.username}</td> <!--标签名称-->
+                            
+                        <td>
+                                <a class="link-update" >{$li.sex}</a>
+                            </td>
+                            <td>
+                                <a class="link-update" >{$li.authority}</a>
+                            </td>
+                            <td align="center">
+                              <input type="button" value="修改" class="btn" onclick="window.location.href='{:U('Admin/User/editAdmin/id/'.$li['id'])}'"><input type="button" value="删除" onclick="DelAdmin()" class="btn">
+                            </td>
+                        </tr>
+                        </volist>
+                    </table>
+                    <div class="list-page"> 
+                    </div>
+                </div>
+            </form>
+        </div>
+</div>
+</body>
+<script type="text/javascript">
+    function DelAdmin(){
+        if(window.confirm("您确定要删除吗？！！！")){
+            window.location.href='{:U('Admin/User/DelUser_c/id/'.$li['id'])}';
+        }
+    }
+	function selectBox(selectType){  
+        var checkboxis = document.getElementsByName("id[]");  
+        if(selectType == "reverse"){  
+            for (var i=0; i<checkboxis.length; i++){  
+                //alert(checkboxis[i].checked);  
+                checkboxis[i].checked = !checkboxis[i].checked;  
+            }  
+        }  
+        else if(selectType == "all")  
+        {  
+            for (var i=0; i<checkboxis.length; i++){  
+                //alert(checkboxis[i].checked);  
+                checkboxis[i].checked = true;  
+            }  
+        }  
+     } 
+            </script>
+</html>

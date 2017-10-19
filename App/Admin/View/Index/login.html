@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+<head>
+<title>Home</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout
+
+(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!-- font files  -->
+<link href='http://fonts.useso.com/css?family=Muli:400,300' rel='stylesheet' 
+
+type='text/css'>
+<link href='http://fonts.useso.com/css?family=Nunito:400,300,700' rel='stylesheet' 
+
+type='text/css'>
+<!-- /font files  -->
+<!-- css files -->
+<link href="__css__/sty.css" rel='stylesheet' type='text/css' media="all" />
+<!-- /css files -->
+</head>
+<body>
+<h1>管理员后台登录</h1>
+<div class="log">
+	<div class="content1">
+		<h2>登录表</h2>
+		<form action="{:U('Index/doLogin')}"method="post">
+			<input type="text" name="userName" value="用户名" onfocus="this.value
+
+= '';" onblur="if (this.value == '') {this.value = 'USERNAME';}">
+			<input type="password" name="psw" value="" onfocus="this.value = 
+
+'';" onblur="if (this.value == '') {this.value = 'PASSWORD';}">
+			<div class="button-row">
+				<input type="submit" class="sign-in" value="登录">
+				<input type="reset" class="reset" value="重置">
+				<div class="clear"></div>
+			</div>
+		</form>
+	</div>
+	
+<div class="footer">
+	<p>Copyright &copy; 2016.Electronic Technology Applied Society All rights 
+
+reserved.</p>
+</div>
+
+</body>
+</html>

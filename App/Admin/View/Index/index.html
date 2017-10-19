@@ -1,0 +1,126 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>管理员中心</title>
+    <link rel="stylesheet" type="text/css" href="__css__/common.css"/>
+    <link rel="stylesheet" type="text/css" href="__css__/main.css"/>
+    <script type="text/javascript" src="__js__/libs/modernizr.min.js"></script>
+</head>
+<body>
+<div class="topbar-wrap white">
+    <div class="topbar-inner "  id="topB" style="background:#000; color:#FFD2D2" onMouseOver="color1()" onMouseOut="color2()">
+    <img src="__img__/xh_logo.png" width="45" height="45" />电子应用技术协会网站后台管理系统 <a id="showClock"></a><a href="{:U('Index/logout')}" class="logout">管理员退出</a>
+    </div>
+</div>
+<!--<div class="topbar-wrap white">
+ <div class="topbar-logo-wrap clearfix">
+            <h1 class="topbar-logo none"><a href="index.php" class="navbar-brand">管理员中心</a></h1>
+        </div>
+    </div>-->
+
+<div class="container clearfix">
+  <div class="sidebar-wrap">
+        <div class="sidebar-title">
+            <h1>菜单</h1>
+        </div>
+        <div class="sidebar-content">
+            <ul class="sidebar-list">
+                <li>
+                    <a href="#" onclick="show('menu1','change1')" id="change1" style="color: white"><i class="icon-font">&#xe018;</i>文章操作</a>
+                    <ul class="sub-menu" id="menu1" style="display:none;">
+                        <li><a href="{:U('Article/ArticleGuanLi')}" target="mainFrame" style="color: white"><img src="__img__/wzgl.png" width="15" height="15" />*文章管理</a></li>
+                        <li><a href="{:U('Article/ArticleFaBu')}" target="mainFrame" style="color: white"><img src="__img__/wzfb.png" width="15" height="15" />文章发布</a></li>
+                        <li><a href="{:U('Article/ArticleChaXun')}" target="mainFrame" style="color: white"><img src="__img__/wzcx.png" width="15" height="15" />文章查询</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#" onclick="show('menu2','change2')" id="change2" style="color: white"><i class="icon-font">&#xe018;</i>页面操作</a>
+                    <ul class="sub-menu" id="menu2" style="display:none;">
+                        <li><a href="{:U('Page/xczp')}" target="mainFrame" style="color: white"><img src="__img__/dzhb.png" width="15" height="15" />宣传照片</a></li>
+                        <li><a href="{:U('Page/qq')}" target="mainFrame" style="color: white"><img src="__img__/qq.png" width="15" height="15" />联系qq</a></li>
+                         <li><a href="{:U('Page/yxzl')}" target="mainFrame" style="color: white"><img src="__img__/yxzl.png" width="15" height="15"/>服务列表</a></li>
+                        <li><a href="{:U('Mail/index')}" target="mainFrame" style="color: white"><img src="__img__/yjfs.png" width="15" height="15" />邮件发送</a></li>
+                        <li><a href="{:U('Page/xxfk')}" target="mainFrame" style="color: white"><img src="__img__/xxfk.png" width="15" height="15"/>电影反馈{$mo}</a></li>
+                        <li><a href="{:U('Page/zxbm')}" target="mainFrame" style="color: white"><img src="__img__/zxbm.png" width="15" height="15"/>报名通知{$jo}</a></li>
+                    </ul>
+              </li>
+               <li>
+                    <a href="#" onclick="show('menu3','change3')" id="change3" style="color: white"><i class="icon-font">&#xe018;</i>用户操作</a>
+                    <ul class="sub-menu" id="menu3" style="display:none;">
+                        <li><a href="{:U('User/AlterPsw')}" target="mainFrame" style="color: white"><img src="__img__/key.png" width="15" height="15" />更改信息</a></li>
+                        <li><a href="{:U('User/AddUser')}" target="mainFrame" style="color: white"><img src="__img__/add.png" width="15" height="15" />*新增用户</a></li>
+                        <li><a href="{:U('User/DelUser')}" target="mainFrame" style="color: white"><img src="__img__/delete.png" width="15" height="15"/>*管理用户</a></li>
+                    </ul>
+              </li>
+                <li>
+                    <a href="#" onclick="show('menu4','change4')" id="change4" style="color: white"><i class="icon-font">&#xe018;</i>系统操作</a>
+                    <ul class="sub-menu" id="menu4" style="display:none;">
+                        <li><a href="{:U('System/XhSet')}" target="mainFrame" style="color: white"><img src="__img__/cgsz.png" width="15" height="15" />*常规设置</a></li>
+                        <li><a href="{:U('Page/gywm')}" target="mainFrame" style="color: white"><img src="__img__/gywm.png" width="15" height="15" />*我们团队</a></li>
+                        <li><a href="{:U('System/XHRuntime')}" target="mainFrame" style="color: white"><img src="__img__/qlhc.png" width="15" height="15" />清理缓存</a></li>
+                        <li><a href="{:U('System/XhBackup')}" target="mainFrame" style="color: white"><img src="__img__/bfhy.png" width="15" height="15" />*备份还原</a></li>
+                        <li><a href="{:U('System/XhMonitor')}" target="mainFrame" style="color: white"><img src="__img__/xwjk.png" width="15" height="15" />行为监控</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!--/sidebar-->
+    <div class="main-wrap">
+        <div class="cont">
+            <!-- 嵌套网页开始 -->
+            <iframe src="{:U('Index/main')}" id="mainF"  frameborder="0" scrolling=no name="mainFrame" width="100%" onLoad="iframeHeight()"></iframe>
+            <!-- 嵌套网页结束 -->
+        </div>
+  </div>
+    <!--/main-->
+</div>
+</body>
+<script language="javascript" type="text/javascript">
+				t=setInterval(function v(){clock();});
+	function clock(){
+				var c=new Date();
+				var m=c.getMinutes();
+				var s=c.getSeconds();
+				if(m<10){
+					m="0"+m;
+					}
+					if(s<10){
+						s="0"+s;
+						}
+				document.getElementById("showClock").innerHTML=c.getFullYear()+'-'+(c.getMonth()+1)+'-'+c.getDate()+' '+c.getHours()+':'+m+':'+s;
+				}
+function iframeHeight(){
+	var ifm=document.getElementById("mainF");
+	var subweb=document.frames?document.frames["mainF"].document:ifm.contentDocument;
+	if(ifm!=null&&subweb!=null){
+		ifm.height=subweb.body.scrollHeight;
+		}
+	}
+	function changeColor(){
+		var str="0123456789abcdef";
+		var t="#";
+		for(i=0;i<6;i++){
+			t=t+str.charAt(Math.random()*str.length-1);
+			}
+			return t;
+		}
+	function color1(){
+		var v=document.getElementById("topB").style.backgroundColor=changeColor();
+		}
+		
+    function color2(){
+		var v=document.getElementById("topB").style.backgroundColor=changeColor();	
+			}
+    	function show(num,change){
+	    		var menu=document.getElementById(num);
+	    		var change=document.getElementById(change);
+    		   if(menu.style.display=='none'){
+    	             menu.style.display='';
+    		    }else{
+    		         menu.style.display='none';
+    		    }
+        }
+</script>
+</html>

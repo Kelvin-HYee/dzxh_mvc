@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="__css__/common.css"/>
+    <link rel="stylesheet" type="text/css" href="__css__/main.css"/>
+    <script type="text/javascript" src="__js__/libs/modernizr.min.js"></script>
+</head>
+<body>
+<style>
+    /*分页样式*/
+    .pagelist{ text-align:center; background:#f1f1f1; padding:7px 0;}
+    .pagelist a{ margin:0 5px; border:#6185a2 solid 1px; display:inline-block; padding:2px 6px 1px; line-height:16px; background:#fff; color:#6185a2;}
+    .pagelist span{ margin:0 5px; border:#6185a2 solid 1px; display:inline-block; padding:2px 6px 1px; line-height:16px; color:#6185a2; color:#fff; background:#6185a2;}
+</style>
+<div class="crumb-wrap">
+    <div class="crumb-list"><i class="icon-font"></i><a href="{:U('Index/main')}">首页
+
+    </a><span class="crumb-step">&gt;</span><span class="crumb-name">行为监控</span></div>
+</div>
+
+<div class="result-wrap">
+    <form name="myform" id="myform" method="post" action="">
+        <div class="result-title">
+            <div class="result-list">
+                <a id="updateOrd" href="javascript:void(0)" style="float: left"><i class="icon-font"> </i>
+                    <select id="" class="select" onchange="window.location=this.value;">
+                        <option>--只查看某一行为--</option>
+                        <!--<option value="{:U('Admin/System/XhMonitor/handle/1')}" >登录</option>-->
+                        <option value="{:U('Admin/System/XhMonitor/handle/2')}">文章发布</option>
+                        <option value="{:U('Admin/System/XhMonitor/handle/3')}" >文章修改</option>
+                        <option value="{:U('Admin/System/XhMonitor/handle/4')}">文章删除</option>
+                        <option value="{:U('Admin/System/XhMonitor/handle/5')}">页面操作</option>
+                        <option value="{:U('Admin/System/XhMonitor/handle/6')}">更改用户信息</option>
+                        <option value="{:U('Admin/System/XhMonitor/handle/7')}">删除用户</option>
+                        <option value="{:U('Admin/System/XhMonitor/handle/8')}">添加用户</option>
+                        <option value="{:U('Admin/System/XhMonitor/handle/9')}">数据还原与备份及删除</option>
+                        <option value="{:U('Admin/System/XhMonitor/handle/10')}">修改或添加分类</option>
+                    </select></a>
+               <input class="btn btn-primary btn2" style="float: right" type=button value="点击清空所有行为！！" onclick="window.location='{:U('Admin/System/delMonitor')}'">
+            </div>
+        </div>
+        <div class="result-content">
+            <table class="result-tab" width="100%">
+                <tr>
+                    <th>ID</th>
+                    <th>操作者id</th>
+                    <th>操作者</th>
+                    <th>操作者的ip</th>
+                    <th>操作的时间</th>
+                    <th>行为</th>
+                    <th>操作的对象</th>
+                </tr>
+                <volist name="list" id="li">
+                    <tr>
+                        <td>{$li.id}</td> <!--标签ID-->
+                        <td >{$li.pid}</td> <!--标题-->
+                        <td>{$li.username}</td>
+                        <td>{$li.ip}</td>
+                        <td>{$li.last_time}</td>
+                        <td>{$li.handle}</td>
+                        <td>{$li.handle_o}</td>
+                    </tr>
+                </volist>
+                <tr align="center"> <td colspan="7"><div class="pagelist">{$page}</div></td></tr>
+            </table>
+        </div>
+    </form>
+</div>
+</body>
+</html>

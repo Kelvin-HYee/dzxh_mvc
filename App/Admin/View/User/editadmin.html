@@ -1,0 +1,56 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>后台管理</title>
+    <link rel="stylesheet" type="text/css" href="__css__/common.css"/>
+    <link rel="stylesheet" type="text/css" href="__css__/main.css"/>
+    <script type="text/javascript" src="__js__/libs/modernizr.min.js"></script>
+</head>
+<body>
+<div class="crumb-wrap">
+    <div class="crumb-list"><i class="icon-font"></i><a href="{:U('Index/main')}">首页
+
+    </a><span class="crumb-step">&gt;</span><span class="crumb-name">修改用户</span></div>
+</div>
+<div class="search-wrap">
+    <h3>修改管理员</h3>
+    <volist name="list" id="li">
+    <form action="__URL__/editAdmin_c/id/{$li.id}" method="post">
+        <table width="70%" border="1" cellpadding="5" cellspacing="0" bgcolor="#cccccc">
+            <tr>
+                <td align="right">*管理员名称</td>
+                <td><input type="text" name="username" placeholder="{$li.username}"/></td>
+            </tr>
+            <tr>
+                <td align="right">*管理员密码</td>
+                <td><input type="text" name="password" placeholder="{$li.password}"/></td>
+            </tr>
+            <tr>
+                <td align="right">*管理员性别 </td>
+                <td> <select name="sex" class="select" placeolder="{$li.sex}">
+                    <option value="3">请选择</option>
+                    <option value="1">男</option>
+                    <option value="2">女</option>
+                    <option value="3">保密</option>
+                </select>
+                </td>
+
+            </tr>
+            <tr>
+                <td align="right">*管理员权限</td>
+                <td><input type="text" placeholder="{$li.authority}" readonly/>  <font color="red" size="1">'管理员、普通用户'</font></td>
+            </tr>
+            <tr>
+                <td colspan="2"><input type="submit"  value="修改管理员"/></td>
+            </tr>
+        </table>
+    </form>
+    </volist>
+</div>
+
+
+<!--/main-->
+</div>
+</body>
+</html>

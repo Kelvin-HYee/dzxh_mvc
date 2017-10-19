@@ -1,0 +1,98 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>后台管理</title>
+    <link rel="stylesheet" type="text/css" href="__css__/common.css"/>
+    <link rel="stylesheet" type="text/css" href="__css__/main.css"/>
+    <script type="text/javascript" src="__js__/libs/modernizr.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="__plugins__/kindeditor/kindeditor.js"></script>
+    <script type="text/javascript" charset="utf-8" src="__plugins__/kindeditor/lang/zh_CN.js"></script>
+    <script>
+        KindEditor.ready(function(K) {
+                window.editor = K.create('#editor_id');
+        });
+        $(document).ready(function(){
+        	$("#selectFileBtn").click(function(){
+        		$fileField = $('<input type="file" name="thumbs[]"/>');
+        		$fileField.hide();
+        		$("#attachList").append($fileField);
+        		$fileField.trigger("click");
+        		$fileField.change(function(){
+        		$path = $(this).val();
+        		$filename = $path.substring($path.lastIndexOf("\\")+1);
+        		$attachItem = $('<div class="attachItem"><div class="left">a.gif</div><div class="right"><a href="#" title="删除附件">删除</a></div></div>');
+        		$attachItem.find(".left").html($filename);
+        		$("#attachList").append($attachItem);		
+        		});
+        	});
+        	$("#attachList>.attachItem").find('a').live('click',function(obj,i){
+        		$(this).parents('.attachItem').prev('input').remove();
+        		$(this).parents('.attachItem').remove();
+        	});
+        });
+</script>
+</head>
+<body>
+<div class="crumb-wrap">
+    <div class="crumb-list"><i class="icon-font"></i><a href="{:U('Index/main')}">首页
+
+    </a><span class="crumb-step">&gt;</span><span class="crumb-name">文章发布</span></div>
+</div>
+        <div class="result-wrap">
+            <div class="result-content">
+                <volist name="reA" id="re">
+                <form action="__URL__/Article_b_c/id/{$re.id}" method="post" >
+                    <table class="insert-tab" width="100%">
+                        <tbody><tr>
+                            <th width="120"><i class="require-red">*</i>修改分类：</th>
+                            <td>
+                                <select name="cId">
+                                <volist name="list" id="li">
+                                    <option value="{$li.pid}">{$li.name}</option>
+                                </volist>
+                                </select>
+                               
+                            </td>
+                        </tr>
+                        <tr>
+                             <th><i class="require-red" >*</i>修改作者：</th>
+                                <td >
+                                   <a name="author">{$re.author}</a>
+                                </td>
+                            </tr>
+                             <tr>
+                             <th><i class="require-red" >*</i>修改时间：</th>
+                                <td >
+                                   <a name="dateline"><?php $time = time(); echo date("y-m-d h:m:s",$time)?></a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th><i class="require-red">*</i>标题：</th>
+                                <td>
+                                    <input class="common-text required" id="title" name="title" size="50" value="{$re.title}" type="text" placeholder="标题不应过长！">
+                                </td>
+                            </tr>
+                            <tr style="width:100%;height:500px;" >
+                                <th><i class="require-red">*</i>文章内容：</th>
+                                <td><textarea name="content" class="common-textarea" id="editor_id"  style="width:100%;height:480px;" >{$re.content}</textarea></td>
+                            </tr>
+                            <tr>
+                                <th></th>
+                                <td>
+                                    <input class="btn btn-primary btn6 mr10" value="发布" type="submit">
+                                    <input class="btn btn6" onclick="history.go(-1)" value="返回" type="button">
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </form>
+                </volist>
+            </div>
+        </div>
+
+    </div>
+    <!--/main-->
+</div>
+</body>
+</html>
